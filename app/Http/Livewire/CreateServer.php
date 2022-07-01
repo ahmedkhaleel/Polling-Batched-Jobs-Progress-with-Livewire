@@ -12,9 +12,10 @@ use Livewire\Component;
 
 class CreateServer extends Component
 {
+    public $batchId;
     public function createServer()
     {
-        Bus::batch([
+       $batch= Bus::batch([
             new TaskOne(),
             new TaskTow(),
             new TaskThree(),
@@ -22,6 +23,16 @@ class CreateServer extends Component
             new TaskFive(),
         ])
             ->dispatch();
+       $this->batchId = $batch->id;
+    }
+    public function getImportBatchProperty()
+    {
+        if(!$this->batchId)
+        {
+            return null;
+        }
+
+        return Bus::findBatch($this->batchId);
     }
 
     public function render()
