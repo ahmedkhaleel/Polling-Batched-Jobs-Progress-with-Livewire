@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use Exception;
+
 use Illuminate\Bus\Batchable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -33,7 +33,7 @@ class Taskthree implements ShouldQueue
      */
     public function handle()
     {
-        throw new \RuntimeException();
+        throw new \Exception();
 
         if($this->batch()->cancelled())
         {
