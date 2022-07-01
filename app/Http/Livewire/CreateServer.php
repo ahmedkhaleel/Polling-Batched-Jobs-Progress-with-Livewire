@@ -14,9 +14,13 @@ use Livewire\Component;
 class CreateServer extends Component
 {
     public $batchId;
+    public $serverId;
+
+    public $batchFinished = false;
     public $batchProgress = 0;
     public function createServer()
     {
+        $this->serverId = 1;
        $batch= Bus::batch([
             new TaskOne(),
             new TaskTow(),
@@ -40,6 +44,8 @@ class CreateServer extends Component
     public function updateBatchProgress()
     {
         $this->batchProgress = $this->getImportBatchProperty()->progress();
+        $this->batchFinished = $this->getImportBatchProperty()->finished();
+
     }
 
     public function render()

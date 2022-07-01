@@ -15,4 +15,9 @@
             </div>
         </div>
     @endif
+
+    @if($batchFinished)
+        <p class="mt-4">Your server (# {{$serverId}}) has been created.</p>
+
+    @endif
 </div>
