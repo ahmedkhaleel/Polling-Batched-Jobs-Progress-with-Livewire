@@ -17,6 +17,7 @@ class CreateServer extends Component
     public $serverId;
 
     public $batchFinished = false;
+    public $batchCancelled = false;
     public $batchProgress = 0;
     public function createServer()
     {
@@ -45,6 +46,7 @@ class CreateServer extends Component
     {
         $this->batchProgress = $this->getImportBatchProperty()->progress();
         $this->batchFinished = $this->getImportBatchProperty()->finished();
+        $this->batchCancelled = $this->getImportBatchProperty()->cancelled();
 
     }
 

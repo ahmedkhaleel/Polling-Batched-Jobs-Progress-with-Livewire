@@ -4,7 +4,7 @@
             Create Server
         </x-button>
     @endif
-        {{$batchProgress}}%
+    {{$batchProgress}}%
     @if ($batchId)
         <div class="relative pt-1 " wire:poll="updateBatchProgress">
 
@@ -15,8 +15,9 @@
             </div>
         </div>
     @endif
-
-    @if($batchFinished)
+    @if ($batchCancelled)
+        <p class="mt-4">Failed</p>
+    @elseif($batchFinished)
         <p class="mt-4">Your server (# {{$serverId}}) has been created.</p>
 
     @endif

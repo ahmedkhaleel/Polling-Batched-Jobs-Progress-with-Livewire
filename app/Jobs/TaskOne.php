@@ -32,6 +32,11 @@ class TaskOne implements ShouldQueue
      */
     public function handle()
     {
+        if($this->batch()->cancelled())
+        {
+            return;
+        }
+        Log::info('Taskone');
         sleep(1);
     }
 }

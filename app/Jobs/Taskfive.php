@@ -32,6 +32,11 @@ class Taskfive implements ShouldQueue
      */
     public function handle()
     {
+        if($this->batch()->cancelled())
+        {
+            return;
+        }
+        Log::info('Taskfive');
         sleep(1);
     }
 }

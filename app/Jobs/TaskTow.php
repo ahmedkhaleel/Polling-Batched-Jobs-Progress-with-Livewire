@@ -32,6 +32,11 @@ class TaskTow implements ShouldQueue
      */
     public function handle()
     {
+        if($this->batch()->cancelled())
+        {
+            return;
+        }
+        Log::info('Tasktow');
         sleep(1);
     }
 }
