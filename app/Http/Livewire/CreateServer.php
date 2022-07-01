@@ -8,11 +8,13 @@ use App\Jobs\TaskOne;
 use App\Jobs\Taskthree;
 use App\Jobs\TaskTow;
 use Illuminate\Support\Facades\Bus;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class CreateServer extends Component
 {
     public $batchId;
+    public $batchProgress = 0;
     public function createServer()
     {
        $batch= Bus::batch([
@@ -33,6 +35,10 @@ class CreateServer extends Component
         }
 
         return Bus::findBatch($this->batchId);
+    }
+    public function updateBatchProgress()
+    {
+        $this->batchProgress = $this->getImportBatchProperty()->progress();
     }
 
     public function render()
