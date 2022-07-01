@@ -1,3 +1,6 @@
 <div>
-   Create Server
+    <x-button wire:click="createServer">
+        Create Server
+    </x-button>
+
 </div>
