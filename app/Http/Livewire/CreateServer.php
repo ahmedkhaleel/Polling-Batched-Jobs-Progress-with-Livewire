@@ -25,6 +25,7 @@ class CreateServer extends Component
             new TaskFive(),
         ])
             ->dispatch();
+
        $this->batchId = $batch->id;
     }
     public function getImportBatchProperty()
